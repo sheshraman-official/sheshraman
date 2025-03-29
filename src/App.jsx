@@ -9,6 +9,8 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Loader from "./components/Loader";
 import Blog from "./components/blog";
+import Terms from "./pages/Terms";      // Import Terms Page
+import Privacy from "./pages/Privacy";  // Import Privacy Policy Page
 
 function App() {
     const [loading, setLoading] = useState(true);
@@ -29,6 +31,8 @@ function App() {
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/experience" element={<PE />} />
                 <Route path="/p&e" element={<PE />} />
+                <Route path="/Terms" element={<Terms />} />      {/* Terms Page Route */}
+                <Route path="/Privacy" element={<Privacy />} />  {/* Privacy Policy Route */}
 
             </Routes>
             <Footer />
