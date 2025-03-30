@@ -18,3 +18,8 @@ html {
     opacity: 0;
   }
 }
+
+/* input::placeholder {
+  color: black !important;
+  opacity: 1 !important;
+} */

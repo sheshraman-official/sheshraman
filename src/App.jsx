@@ -11,6 +11,9 @@ import Loader from "./components/Loader";
 import Blog from "./components/blog";
 import Terms from "./pages/Terms";      // Import Terms Page
 import Privacy from "./pages/Privacy";  // Import Privacy Policy Page
+import G3MarketComplex from "./pages/G3MarketComplex";
+import LateralStudy from "./pages/LateralStudy";
+import HydraulicModeling from "./pages/HydraulicModeling";
 
 function App() {
     const [loading, setLoading] = useState(true);
@@ -33,6 +36,9 @@ function App() {
                 <Route path="/p&e" element={<PE />} />
                 <Route path="/Terms" element={<Terms />} />      {/* Terms Page Route */}
                 <Route path="/Privacy" element={<Privacy />} />  {/* Privacy Policy Route */}
+                <Route path="/G3MarketComplex" element={<G3MarketComplex />} />
+                <Route path="/LateralStudy" element={<LateralStudy />} />
+                <Route path="/HydraulicModeling" element={<HydraulicModeling />} />
 
             </Routes>
             <Footer />

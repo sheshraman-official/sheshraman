@@ -3,16 +3,17 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 
-
 const Hero = () => {
   const [hovered, setHovered] = useState(false);
   const [showSecondImage, setShowSecondImage] = useState(false);
 
   const handleMouseEnter = () => {
-    setHovered(true);
-    setTimeout(() => {
-      setShowSecondImage(true);
-    }, 400);
+    if (window.innerWidth > 768) { // Disable hover on mobile
+      setHovered(true);
+      setTimeout(() => {
+        setShowSecondImage(true);
+      }, 400);
+    }
   };
 
   const handleMouseLeave = () => {
@@ -25,16 +26,15 @@ const Hero = () => {
       className="h-screen flex flex-col md:flex-row items-center justify-center md:justify-between px-6 md:px-20 text-white relative overflow-hidden"
       style={{
         backgroundImage: `url(${process.env.PUBLIC_URL}/webb.png)`,
-        backgroundSize: "400px 400px",
+        backgroundSize: window.innerWidth > 768 ? "400px 400px" : "200px 200px",
         backgroundRepeat: "repeat",
         backgroundColor: "#0a192f",
       }}
     >
-     
 
-      {/* Floating Bubbles Animation */}
+      {/* Floating Bubbles - Reduced for Mobile */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(10)].map((_, i) => (
+        {[...Array(window.innerWidth > 768 ? 10 : 3)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute bg-lightBlueprint opacity-20 rounded-full filter blur-3xl"
@@ -51,8 +51,8 @@ const Hero = () => {
               ease: "easeInOut",
             }}
             style={{
-              width: `${Math.random() * 120 + 60}px`,
-              height: `${Math.random() * 120 + 60}px`,
+              width: `${Math.random() * (window.innerWidth > 768 ? 120 : 60) + 60}px`,
+              height: `${Math.random() * (window.innerWidth > 768 ? 120 : 60) + 60}px`,
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
             }}
@@ -73,9 +73,9 @@ const Hero = () => {
             loop={true} 
             cursor
             cursorStyle="_"
-            typeSpeed={150}
-            deleteSpeed={70}
-            delaySpeed={1500}
+            typeSpeed={window.innerWidth > 768 ? 150 : 100} // Reduced speed for mobile
+            deleteSpeed={window.innerWidth > 768 ? 70 : 50}
+            delaySpeed={window.innerWidth > 768 ? 1500 : 1000}
           />
         </motion.h1>
 
@@ -90,9 +90,9 @@ const Hero = () => {
             loop={true} 
             cursor
             cursorStyle="_"
-            typeSpeed={150}
-            deleteSpeed={50}
-            delaySpeed={1500}
+            typeSpeed={window.innerWidth > 768 ? 150 : 100} // Reduced speed for mobile
+            deleteSpeed={window.innerWidth > 768 ? 50 : 30}
+            delaySpeed={window.innerWidth > 768 ? 1500 : 1000}
           />
         </motion.h2>
 
@@ -133,7 +133,7 @@ const Hero = () => {
       >
         <Link to="/about">
           <div
-            className={`relative w-52 h-52 flex justify-center items-center bg-gradient-to-r from-blueprintBlue to-blue-300 p-1 rounded-full transition-transform duration-700 ease-in-out ${hovered ? "scale-150" : "scale-125"}`}
+            className={`relative w-52 h-52 flex justify-center items-center bg-gradient-to-r from-blueprintBlue to-blue-300 p-1 rounded-full transition-transform duration-700 ease-in-out ${hovered ? "md:scale-150" : "md:scale-125"}`}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
