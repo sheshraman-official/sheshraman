@@ -39,7 +39,7 @@ const Navbar = () => {
           {/* Download Resume Button */}
           <li>
             <a 
-              href="/resume.pdf" 
+              href={`${process.env.PUBLIC_URL}/resume.pdf`} 
               download="Sheshraman_Resume.pdf"
               rel="noopener noreferrer"
               className="px-4 py-2 bg-slate-300 text-blue-800 rounded-md shadow-md transition duration-300 transform 
@@ -63,7 +63,7 @@ const Navbar = () => {
           ))}
           <li>
             <a 
-              href="/resume.pdf" 
+              href={`${process.env.PUBLIC_URL}/resume.pdf`} 
               download="Sheshraman_Resume.pdf"
               rel="noopener noreferrer"
               className="px-4 py-2 bg-slate-600 text-blue-500 rounded-md shadow-md transition duration-300 transform 
